@@ -1,6 +1,6 @@
 # Dockerfile
 FROM fedora:latest
 
-ADD highcpu.sh /
+RUN dnf install stress
 
-RUN bash -c "chmod a+x highcpu.sh ; ./highcpu.sh"
+CMD ["stress --cpu 2 --timeout 60"]
